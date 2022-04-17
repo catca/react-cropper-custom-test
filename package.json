@@ -6,7 +6,7 @@
   "module": "./dist/index.esm.ts",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "build": "rollup -c",
     "watch": "rollup -cw"
   },
@@ -17,8 +17,12 @@
   "author": "catca",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "resolutions": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -30,11 +34,19 @@
     "@rollup/plugin-commonjs": "^21.0.3",
     "@rollup/plugin-node-resolve": "^13.2.0",
     "@rollup/plugin-typescript": "^8.3.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@types/enzyme": "^3.10.12",
     "@types/react": "^18.0.5",
     "@types/react-dom": "^18.0.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "enzyme": "^3.11.0",
+    "jest": "^27.5.1",
     "rollup": "^2.70.1",
     "rollup-plugin-dts": "^4.2.1",
+    "ts-jest": "^27.1.4",
     "tslib": "^2.3.1",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
