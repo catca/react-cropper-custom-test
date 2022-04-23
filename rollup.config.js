@@ -1,44 +1,30 @@
-import babel from "@rollup/plugin-babel";
-import typescript from "@rollup/plugin-typescript";
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
 import alias from '@rollup/plugin-alias';
+import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 
 import path from 'path';
+const packageJson = require('./package.json');
 
 export default [
   {
-    input: "./src/index.ts",
+    input: 'src/index.ts',
     output: [
-    {
-      file: 'dist/index.cjs.ts',
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      file: 'dist/index.esm.ts',
-      format: 'esm',
-      sourcemap: true,
-    },
-  ],
-    plugins: [
-      // 바벨 트랜스파일러 설정
-      babel({
-        babelHelpers: "bundled",
-        presets: [
-          "@babel/preset-env",
-          "@babel/preset-react",
-          "@babel/preset-typescript",
-        ],
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-      }),
-      alias({
-        entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
-      }),
-
-      // 타입스크립트
-      typescript(),
-      dts(),
+      {
+        file: packageJson.main,
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: packageJson.module,
+        format: 'esm',
+        sourcemap: true,
+      },
     ],
+    plugins: [peerDepsExternal(), resolve(), commonjs(), postcss(), typescript()],
   },
   {
     input: 'src/index.ts',
@@ -49,6 +35,7 @@ export default [
       alias({
         entries: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
       }),
+      postcss(),
     ],
   },
 ];
