@@ -10,12 +10,19 @@
       "esnext"
     ],
     "jsx": "react",
-    "module": "es6",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@style/*": ["src/style/*"],
+      "@hooks/*": ["src/hooks/*"], 
+      "@utils/*": ["src/utils/*"],
+      "@src/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*"

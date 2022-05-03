@@ -1,66 +1,71 @@
 {
   "name": "react-cropper-custom-test",
-  "version": "0.0.1",
-  "description": "react cropper custom rollup",
+  "version": "1.0.0",
+  "description": "react cropper custom test",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
+    "coverage": "jest --coverage",
     "build": "rollup -c",
     "watch": "rollup -cw",
-    "prepare": "husky install",
     "format": "prettier --check ./src",
     "format:fix": "prettier --write ./src",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"
   },
-  "keywords": [
-    "rollup",
-    "react"
+  "author": "",
+  "license": "ISC",
+  "eslintIgnore": [
+    "jest.config.js",
+    ".eslintrc.js",
+    "rollup.config.js",
+    "mocks/styleMock.js"
   ],
-  "author": "catca",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "resolutions": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
   "devDependencies": {
-    "@babel/core": "^7.17.9",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
     "@rollup/plugin-alias": "^3.1.9",
-    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.2.1",
     "@rollup/plugin-typescript": "^8.3.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@types/enzyme": "^3.10.12",
-    "@types/react": "^18.0.5",
+    "@types/normalize-wheel": "^1.0.0",
+    "@types/react": "^18.0.7",
     "@types/react-dom": "^18.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-    "@typescript-eslint/parser": "^5.20.0",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "enzyme": "^3.11.0",
     "eslint": "^8.14.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-functional": "^4.2.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "husky": "^7.0.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "postcss": "^8.4.12",
     "prettier": "^2.6.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "rollup": "^2.70.1",
+    "rollup": "^2.70.2",
     "rollup-plugin-dts": "^4.2.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "ts-jest": "^27.1.4",
-    "tslib": "^2.3.1",
+    "tslib": "^2.4.0",
     "typescript": "^4.6.3"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {
+    "normalize-wheel": "^1.0.1"
   }
 }

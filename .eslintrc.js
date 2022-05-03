@@ -2,11 +2,14 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: [
-    'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'airbnb',
+    'airbnb/hooks',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -17,15 +20,26 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint', 'functional'],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'import', 'functional'],
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      typescript: {},
     },
   },
   rules: {
     // General
     'no-console': 'error',
+
+    'no-use-before-define': 'off',
+    'no-void': 'off',
+    'no-unused-vars': 'off',
+    'no-nested-ternary': 'off',
 
     // TypeScript
     '@typescript-eslint/consistent-type-imports': 'error',
@@ -75,6 +89,12 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'error',
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
 
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-shadow': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-unnecessary-condition': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+
     // React
     'react/jsx-boolean-value': 'warn',
     'react/jsx-curly-brace-presence': 'warn',
@@ -84,6 +104,11 @@ module.exports = {
     'react/prefer-stateless-function': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
+
+    'react/function-component-definition': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
 
     // Functional
     'functional/prefer-readonly-type': [
@@ -92,6 +117,20 @@ module.exports = {
         allowLocalMutation: true,
         allowMutableReturnType: true,
         ignoreClass: true,
+      },
+    ],
+
+    // import
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/prefer-default-export': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
       },
     ],
   },
