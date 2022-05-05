@@ -1,4 +1,4 @@
-import type { Area, Point, Size } from '@src/types';
+import type { Area, Point, Size } from '../types';
 
 /**
  * Clamp value between min and max
@@ -40,8 +40,8 @@ function flexiblePositionCoord(
   zoom: number,
 ): number {
   const maxPosition = (mediaSize * zoom) / 2 - imageSize / 2;
-  if (position > maxPosition) return maxPosition + (position - maxPosition)**0.7;
-  if (position < -maxPosition) return -maxPosition - (-(position + maxPosition))**0.7;
+  if (position > maxPosition) return maxPosition + (position - maxPosition) ** 0.7;
+  if (position < -maxPosition) return -maxPosition - (-(position + maxPosition)) ** 0.7;
   return position;
 }
 
